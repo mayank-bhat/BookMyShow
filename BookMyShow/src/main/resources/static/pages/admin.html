@@ -237,6 +237,7 @@
                 await CityAPI.add({ name, pinCode, state });
                 showToast('City added!', 'success');
                 document.getElementById('city-name').value = '';
+                document.getElementById('pin-code').value = '';
                 document.getElementById('city-state').value = '';
                 loadCities();
             } catch (e) { showToast(e.message, 'error'); }
