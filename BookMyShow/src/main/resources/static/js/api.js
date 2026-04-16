@@ -60,7 +60,8 @@ const UserAPI = {
 const CityAPI = {
     add: (data) => apiPost('/cities/add-city', data),
     getAll: () => apiGet('/cities'),
-    getById: (id) => apiGet(`/cities/${id}`)
+    getById: (id) => apiGet(`/cities/${id}`),
+    getByState: (stateName) => apiGet(`/cities/state/${stateName}`)
 };
 
 // ===== MOVIE APIs =====

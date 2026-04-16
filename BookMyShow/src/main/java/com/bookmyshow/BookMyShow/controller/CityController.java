@@ -31,7 +31,7 @@ public class CityController {
 
     @GetMapping("/state/{stateName}")
     public ResponseEntity<List<City>> getCitiesByStateName(@PathVariable String stateName){
-        return ResponseEntity.ok(cityService.getCitiesByStateName(stateName));
+        return ResponseEntity.ok(cityService.getCitiesByState(stateName));
     }
 
     @GetMapping

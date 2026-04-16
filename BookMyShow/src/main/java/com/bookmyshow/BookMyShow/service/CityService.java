@@ -36,8 +36,8 @@ public class CityService {
                 .orElseThrow(()->new RuntimeException("City Not Found having id : "+String.valueOf(id)));
     }
 
-    public List<City> getCitiesByStateName(String stateName){
-        return cityRepository.findByStateNameContainingIgnoreCase(stateName);
+    public List<City> getCitiesByState(String stateName){
+        return cityRepository.findByStateContainingIgnoreCase(stateName);
     }
 
     public List<City> searchCityByName(String name){

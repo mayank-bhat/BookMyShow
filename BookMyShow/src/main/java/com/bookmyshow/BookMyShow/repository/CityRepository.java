@@ -12,6 +12,6 @@ public interface CityRepository extends JpaRepository<City, Long> {
     //public City findById(Long id);
     public List<City> findByNameContainingIgnoreCase(String name);
 
-    @Query("SELECT c.state FROM City c WHERE c.state = :stateName")
-    public List<City> findByStateNameContainingIgnoreCase(@Param("stateName") String stateName);
+    @Query("SELECT c FROM City c WHERE c.state = :stateName")
+    public List<City> findByStateContainingIgnoreCase(@Param("stateName") String stateName);
 }
