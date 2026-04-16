@@ -70,4 +70,9 @@ public class MovieService {
 
         movieRepository.delete(availableMovie);
     }
+
+    public void deleteMovieById(Long id){
+        Movie availableMovie = movieRepository.findById(id)
+                .orElseThrow(()->new RuntimeException("Movie not Found having ID : "+String.valueOf(id)));
+    }
 }

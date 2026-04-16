@@ -94,6 +94,7 @@ const ScreenAPI = {
 // ===== SEAT APIs =====
 const SeatAPI = {
     add: (data) => apiPost('/seats', data),
+    getAll: () => apiGet('/api/seats'),
     getByScreen: (screenId) => apiGet(`/seats/screen/${screenId}`),
     getById: (id) => apiGet(`/seats/${id}`)
 };

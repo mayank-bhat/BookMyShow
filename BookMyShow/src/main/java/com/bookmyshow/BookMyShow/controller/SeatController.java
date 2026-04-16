@@ -17,6 +17,11 @@ public class SeatController {
 
     private final SeatService seatService;
 
+    @GetMapping
+    public ResponseEntity<List<Seat>> getAllSeats(){
+        return ResponseEntity.ok(seatService.getAllSeats());
+    }
+
     @PostMapping("/add-seat")
     public ResponseEntity<Seat> addSeat(@RequestBody SeatRequest seatRequest){
         return ResponseEntity.ok(seatService.addSeat(seatRequest));

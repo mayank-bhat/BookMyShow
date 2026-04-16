@@ -20,6 +20,7 @@ import java.util.List;
 public class ShowController {
     public final ShowService showService;
 
+    @GetMapping
     public ResponseEntity<List<Show>> getAllShows(){
         return ResponseEntity.ok(showService.getAllShows());
     }

@@ -16,6 +16,10 @@ public class SeatService {
     private final SeatRepository seatRepository;
     private final ScreenService screenService;
 
+    public List<Seat> getAllSeats(){
+        return seatRepository.findAll();
+    }
+
     public Seat addSeat(SeatRequest seatRequest){
         Screen screen = screenService.getScreenById(seatRequest.getScreenId());
 
@@ -37,7 +41,6 @@ public class SeatService {
         return seatRepository.findById(id)
                 .orElseThrow(()->new RuntimeException("Seat not found having ID : "+String.valueOf(id)));
     }
-
 
     public List<Seat> addAllSeats(List<SeatRequest> seatRequestList){
         List<Seat> seatList = new ArrayList<>();

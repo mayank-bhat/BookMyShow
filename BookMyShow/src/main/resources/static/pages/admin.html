@@ -381,6 +381,7 @@
             const from = parseInt(document.getElementById('seat-col-from').value);
             const to = parseInt(document.getElementById('seat-col-to').value);
             const seatType = document.getElementById('seat-type').value;
+            console.log(seatType);
 
             if (!screenId || !row || !from || !to) { showToast('Fill all seat fields', 'error'); return; }
             if (from > to) { showToast('From col must be <= To col', 'error'); return; }

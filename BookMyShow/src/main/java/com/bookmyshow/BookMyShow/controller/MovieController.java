@@ -49,4 +49,9 @@ public class MovieController {
         return ResponseEntity.ok(movieService.searchByLanguage(language));
     }
 
+    @DeleteMapping("/{id}")
+    public void deleteMovieById(@PathVariable Long id){
+        movieService.deleteMovieById(id);
+    }
+
 }
