@@ -33,7 +33,7 @@ public class SeatController {
     }
 
     @GetMapping("/screen/{screenId}")
-    public ResponseEntity<List<Seat>> getAllSeat(@PathVariable Long screenId){
+    public ResponseEntity<List<Seat>> getSeatByScreenId(@PathVariable Long screenId){
         return ResponseEntity.ok(seatService.getSeatByScreen(screenId));
     }
 

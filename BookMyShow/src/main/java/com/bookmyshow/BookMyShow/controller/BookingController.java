@@ -3,6 +3,7 @@ package com.bookmyshow.BookMyShow.controller;
 
 import com.bookmyshow.BookMyShow.dto.BookingRequest;
 import com.bookmyshow.BookMyShow.entity.Booking;
+import com.bookmyshow.BookMyShow.entity.Seat;
 import com.bookmyshow.BookMyShow.service.BookingServiece;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -34,6 +35,11 @@ public class BookingController {
     @PutMapping("/{id}/cancel")
     public ResponseEntity<Booking> cancelBookingId(@PathVariable Long id){
         return ResponseEntity.ok(bookingServiece.cancelBooking(id));
+    }
+
+    @GetMapping("show/{showId}/available-seats")
+    public ResponseEntity<List<Seat>> getAvailableSeats(@PathVariable Long showId){
+        return ResponseEntity.ok(bookingServiece.getAvailableSeats(showId));
     }
 
 }

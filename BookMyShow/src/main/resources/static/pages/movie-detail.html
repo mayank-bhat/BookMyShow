@@ -68,7 +68,7 @@
                 document.title = `${movie.title} - BookMyShow`;
                 document.getElementById('movie-detail').innerHTML = `
                     <div style="width:220px; height:320px; border-radius:var(--radius); overflow:hidden; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:6rem; background:linear-gradient(135deg, #1a1a2e, #16213e);">
-                        🎬
+                         <img src="${movie.posterUrl || "assets/default-movie.png"}" alt="${movie.title} || 🎬" style="max-width:100%; max-height:100%; border-radius:4px;" />
                     </div>
                     <div style="flex:1; min-width:250px;">
                         <h1 style="font-size:2rem; margin-bottom:0.5rem;">${movie.title}</h1>
