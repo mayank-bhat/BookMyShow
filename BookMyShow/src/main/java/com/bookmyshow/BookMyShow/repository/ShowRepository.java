@@ -11,4 +11,5 @@ public interface ShowRepository extends JpaRepository<Show, Long> {
     List<Show> findByScreenId(Long screenId);
     List<Show> findByMovieIdAndShowDate(Long movieId, LocalDate showDate);
     List<Show> findByScreenIdAndShowDate(Long screenID, LocalDate showDate);
+    void deleteByMovieId(Long id);
 }

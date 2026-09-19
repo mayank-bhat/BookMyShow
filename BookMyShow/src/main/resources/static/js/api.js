@@ -73,12 +73,12 @@ const MovieAPI = {
     getByGenre: (genre) => apiGet(`/movies/genre/${genre}`),
     getByLanguage: (lang) => apiGet(`/movies/language/${lang}`),
     update: (id, data) => apiPut(`/movies/${id}`, data),
-    delete: (id) => apiDelete(`/movies/${id}`)
+    deleteMovie: (id) => apiDelete(`/movies/${id}`)
 };
 
 // ===== THEATER APIs =====
 const TheaterAPI = {
-    add: (data) => apiPost('/theaters', data),
+    add: (data) => apiPost('/theaters/add-theater', data),
     getAll: () => apiGet('/theaters'),
     getById: (id) => apiGet(`/theaters/${id}`),
     getByCity: (cityId) => apiGet(`/theaters/city/${cityId}`)
@@ -94,7 +94,7 @@ const ScreenAPI = {
 
 // ===== SEAT APIs =====
 const SeatAPI = {
-    add: (data) => apiPost('/seats', data),
+    add: (data) => apiPost('/seats/add-seat', data),
     getAll: () => apiGet('/seats'),
     getByScreen: (screenId) => apiGet(`/seats/screen/${screenId}`),
     getById: (id) => apiGet(`/seats/${id}`)
@@ -102,7 +102,7 @@ const SeatAPI = {
 
 // ===== SHOW APIs =====
 const ShowAPI = {
-    add: (data) => apiPost('/shows', data),
+    add: (data) => apiPost('/shows/add-show', data),
     getAll: () => apiGet('/shows'),
     getById: (id) => apiGet(`/shows/${id}`),
     getByMovie: (movieId) => apiGet(`/shows/movie/${movieId}`),

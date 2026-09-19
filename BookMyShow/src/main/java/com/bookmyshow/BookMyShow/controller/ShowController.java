@@ -41,7 +41,7 @@ public class ShowController {
     }
 
     @GetMapping("/movie/{movieId}/date")
-    public ResponseEntity<List<Show>> getShowByMovieAndDate(@PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Long movieId, @RequestParam LocalDate date){
+    public ResponseEntity<List<Show>> getShowByMovieAndDate(@PathVariable  Long movieId, @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date){
         return ResponseEntity.ok(showService.getShowByMovieAndDate(movieId,date));
     }
 

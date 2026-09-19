@@ -3,8 +3,10 @@ package com.bookmyshow.BookMyShow.service;
 import com.bookmyshow.BookMyShow.dto.MovieRequest;
 import com.bookmyshow.BookMyShow.entity.Movie;
 import com.bookmyshow.BookMyShow.repository.MovieRepository;
+import com.bookmyshow.BookMyShow.repository.ShowRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -12,6 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MovieService {
     private final MovieRepository movieRepository;
+    private final ShowRepository showRepository;
 
     public Movie addMovie(MovieRequest movieRequest){
         Movie movie = Movie.builder()
@@ -71,8 +74,9 @@ public class MovieService {
         movieRepository.delete(availableMovie);
     }
 
+    @Transactional
     public void deleteMovieById(Long id){
-        Movie availableMovie = movieRepository.findById(id)
-                .orElseThrow(()->new RuntimeException("Movie not Found having ID : "+String.valueOf(id)));
+        showRepository.deleteByMovieId(id);
+        movieRepository.deleteById(id);
     }
 }

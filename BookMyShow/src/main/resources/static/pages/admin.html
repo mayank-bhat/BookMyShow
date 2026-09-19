@@ -14,7 +14,7 @@
             <a href="../index.html">Home</a>
             <a href="movies.html">Movies</a>
             <a href="theaters.html">Theaters</a>
-            <a href="bookings.html">My Bookings</a>
+<!--            <a href="bookings.html">My Bookings</a>-->
             <a href="admin.html" class="active">Admin</a>
         </div>
         <div class="nav-user" id="nav-user"></div>
@@ -260,7 +260,7 @@
                 // dropdown for shows
                 const showMovie = document.getElementById('show-movie');
                 if (showMovie) {
-                    showMovie.innerHTML = '<option value="">Select Movie</option>' + movies.map(m => `<option value="${m.id}">${m.title}</option>`).join('');
+                    showMovie.innerHTML = '<option value="">--Select Movie--</option>' + movies.map(m => `<option value="${m.id}">${m.title}</option>`).join('');
                 }
             } catch (e) { console.log('Error loading movies'); }
         }
@@ -289,8 +289,8 @@
         async function deleteMovie(id) {
             if (!confirm('Delete this movie?')) return;
             try {
-                await MovieAPI.delete(id);
-                showToast('Movie deleted', 'success');
+                await MovieAPI.deleteMovie(id);
+                showToast('Movie deleted...!', 'success');
                 loadMovies();
             } catch (e) { showToast(e.message, 'error'); }
         }
