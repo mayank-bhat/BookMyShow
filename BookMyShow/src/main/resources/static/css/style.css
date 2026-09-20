@@ -699,17 +699,65 @@ img { max-width: 100%; display: block; }
 }
 
 /* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+    .grid-4 { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+}
+
 @media (max-width: 768px) {
-    .navbar { padding: 0 1rem; }
-    .nav-links { gap: 0.5rem; }
-    .nav-links a { padding: 0.4rem 0.6rem; font-size: 0.8rem; }
-    .hero h1 { font-size: 1.8rem; }
+    .navbar { 
+        padding: 1rem; 
+        height: auto; 
+        flex-wrap: wrap; 
+        gap: 1rem; 
+        justify-content: space-between; 
+    }
+    .nav-links { 
+        flex-wrap: wrap; 
+        justify-content: center; 
+        width: 100%; 
+        order: 3; 
+    }
+    .nav-user { 
+        order: 2; 
+    }
+
+    .hero { padding: 2.5rem 1rem; }
+    .hero h1 { font-size: 2.2rem; }
+    .search-bar { flex-direction: column; }
+    .search-bar input { width: 100%; }
+    
     .container { padding: 1rem; }
-    .grid-3, .grid-4 { grid-template-columns: 1fr 1fr; }
+    .grid-2, .grid-3, .grid-4 { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+    
     .show-card { flex-direction: column; gap: 1rem; text-align: center; }
-    .show-meta { text-align: center; }
+    .show-meta { text-align: center; width: 100%; }
+    .show-meta .btn { width: 100%; }
+
+    .data-table { display: block; overflow-x: auto; white-space: nowrap; }
+    
+    #movie-detail { flex-direction: column; align-items: center; text-align: center; }
+    #movie-detail > div:first-child { width: 100% !important; max-width: 250px; height: auto !important; aspect-ratio: 2/3; }
+    #movie-detail > div:last-child { min-width: 100% !important; }
+
+    /* Seat Map */
+    .seat-map { overflow-x: auto; padding-bottom: 1rem; width: 100%; align-items: flex-start; }
+    .seat { width: 28px; height: 28px; font-size: 0.6rem; }
+    
+    .modal { padding: 1.5rem 1rem; }
 }
 
 @media (max-width: 480px) {
-    .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    .navbar { flex-direction: column; align-items: center; text-align: center; }
+    .nav-user { margin-top: 0.5rem; }
+    
+    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    
+    .hero h1 { font-size: 1.8rem; }
+    .hero p { font-size: 0.95rem; }
+    
+    .seat { width: 22px; height: 22px; font-size: 0.5rem; border-radius: 4px 4px 6px 6px; border-width: 1px; }
+    .seat-row-label { width: 16px; font-size: 0.7rem; }
+    .seat-row { gap: 0.25rem; }
+    .seat-map { gap: 0.25rem; }
+    .seat-legend { flex-direction: column; gap: 0.5rem; align-items: flex-start; }
 }
